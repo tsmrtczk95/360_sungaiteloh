@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <title>Mukah 360&deg; - Jerunei Sungai Teloh</title>
     <meta name="description" content="360&deg; Image - A-Frame">
-    <script src="../../../dist/aframe-master.min.js"></script>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
 <!--ASSETS STORE HERE-->
       <a-assets>
         <audio id="click-sound" src="assets/click.ogg"></audio>
-        <img id="image1" src="assets/sgteloh1.jpeg">
+        <img id="sky-image1" src="assets/sgteloh1.jpeg">
       </a-asset>
-      <a-sky id="image-360" src="#image1" rotation="0 -130 0"></a-sky>
+        
+      <a-sky src="#sky-image1" rotation="0 -130 0"></a-sky>
       <a-text font="kelsonsans" value="Kampung Sungai Teloh, Mukah" width="6" position="-2.5 0.25 -1.5"
         rotation="0 15 0"></a-text>
     </a-scene>
