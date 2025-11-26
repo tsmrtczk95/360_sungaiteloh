@@ -8,16 +8,25 @@
   </head>
   <body>
     <a-scene>
-<!--ASSETS STORE HERE-->
       <a-assets>
-        <audio id="click-sound" src="assets/click.ogg"></audio>
-        <img id="sky-image1" src="assets/sgteloh1.jpeg">
-      </a-asset>
-        <a-sky src="#sky-image1" rotation="0 -130 0"></a-sky>
-        <!--
-        <a-text font="kelsonsans" value="Kampung Sungai Teloh, Mukah" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
-        -->
-        <a-camera wasd-controls-enabled="false"></a-camera>
-    </a-scene>
+        <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <!-- Images. -->
+        <img id="sgteloh1-image" src="https://raw.githubusercontent.com/tsmrtczk95/360_sungaiteloh/refs/heads/main/assets/sgteloh1.jpeg">
+        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <a-assets>
+          <!-- 360-degree image. -->
+          <a-sky id="image-360" radius="10" src="#sgtelog1-image"></a-sky>
+          <!-- Link template we will build. -->
+          <a-entity class="link"></a-entity>
+          <!-- Camera + Cursor. -->
+          <a-camera>
+            <a-cursor
+              id="cursor"
+              animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+              animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+              animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing">  
+            </a-cursor>
+          </a-camera>
+        </a-scene>
   </body>
 </html>
