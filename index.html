@@ -9,26 +9,58 @@
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+
+    <script>
+      AFRAME.registerComponent('portal', {
+        schema: {
+          target: {type: 'string'} //id of target 360 images
+        },
+        init: function() {
+          this.el.addEventListener('click', () => {
+            let sky = document.querySelector('#image-360');
+            sky.setAttribute('src', this.data.target);
+            //click sound (optional)
+            let snd = document.querySelector('#click-sound');
+            snd.components.sound.playSound();
+          });
+        }
+      });
+    </script>
   </head>
   <body>
     <a-scene>
       <a-assets>
-      <!--AUDIO-->  
+<!--AUDIO-->  
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-      <!--360 IMAGES-->  
+<!--360 IMAGES-->  
         <img id="sgt1-image" src="assets/sgteloh1.jpeg">
         <img id="sgt2-image" src="assets/sgteloh2.jpeg">
         <img id="sgt3-image" src="assets/sgteloh3.jpeg">
-      <!--THUMBNAILS-->
+<!--THUMBNAILS-->
         <img id="sg1-thumb" src="thumbnails/sgteloh1_thumb.jpeg">
         <img id="sg2-thumb" src="thumbnails/sgteloh2_thumb.jpeg">
         <img id="sg3-thumb" src="thumbnails/sgteloh3_thumb.jpeg">
       </a-assets>
-      <!-- 360-degree image. -->
+<!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#sgt1-image"></a-sky>
       <!-- Link template we will build. -->
       <a-entity class="link"></a-entity>
-      <!-- Camera + Cursor. -->
+<!-- Portal to Scene 1 -->
+      <a-sphere position="2 1.5 -3" radius="0.5" src="#sg1-thumb" sound="on: click; src: #click-sound"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      </a-sphere>
+<!-- Portal to Scene 2 -->
+      <a-sphere position="-2 1.5 -3" radius="0.5" src="#sg2-thumb" portal="target: #sgt2-image" sound="on: click; src: #click-sound"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      </a-sphere>
+<!-- Portal to Scene 3 -->
+      <a-sphere position="0 1.2 2" radius="0.5" src="#sg3-thumb" portal="target: #sgt3-image" sound="on: click; src: #click-sound"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      </a-sphere>
+<!-- Camera + Cursor. -->
       <a-camera wasd-controls-enabled="false" look-controls-enabled>
         <a-cursor></a-cursor>
       </a-camera>
