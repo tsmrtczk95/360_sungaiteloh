@@ -13,21 +13,28 @@
   <body>
     <a-scene>
       <a-assets>
+      <!--AUDIO-->  
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="sgt1-image" src="assets/sgteloh1.png">
-        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+      <!--360 IMAGES-->  
+        <img id="sgt1-image" src="assets/sgteloh1.jpeg">
+        <img id="sgt2-image" src="assets/sgteloh2.jpeg">
+        <img id="sgt3-image" src="assets/sgteloh3.jpeg">
+      <!--THUMBNAILS-->
+        <img id="sg1-thumb" src="thumbnails/sgteloh1_thumb.jpeg">
+        <img id="sg2-thumb" src="thumbnails/sgteloh2_thumb.jpeg">
+        <img id="sg3-thumb" src="thumbnails/sgteloh3_thumb.jpeg">
       </a-assets>
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#sgt1-image"></a-sky>
       <!-- Link template we will build. -->
       <a-entity class="link"></a-entity>
       <!-- Camera + Cursor. -->
-      <a-camera wasd-controls-enabled="false" look-controls-enabled>
+      <a-camera wasd-controls-enabled="false" look-controls-enabled><a-cursor></a-cursor>
       <!-- <a-cursor
           id="cursor"
           animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
           animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
-          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing">  
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing">
         </a-cursor> -->
       </a-camera>
     </a-scene>
