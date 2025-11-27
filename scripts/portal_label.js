@@ -13,9 +13,6 @@ AFRAME.registerComponent('portal-label', {
     // --- BILLBOARD BEHAVIOR ---
     // wrapper.setAttribute('look-at', '[camera]'); // FAILED
 
-    // Always face the center of the scene at user's position
-    wrapper.object3D.lookAt(new THREE.Vector3(0, 1.6, 0)); 
-
     // --- BACKGROUND PANEL ---
     const bg = document.createElement('a-plane');
     bg.setAttribute('color', '#000');
