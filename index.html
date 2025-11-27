@@ -10,24 +10,6 @@
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    <!--
-    <script>
-      AFRAME.registerComponent('portal', {
-        schema: {
-          target: {type: 'string'} //id of target 360 images
-        },
-        init: function() {
-          this.el.addEventListener('click', () => {
-            let sky = document.querySelector('#image-360');
-            sky.setAttribute('src', this.data.target);
-            //click sound (optional)
-            let snd = document.querySelector('#click-sound');
-            snd.components.sound.playSound();
-          });
-        }
-      });
-    </script>
-    -->
   </head>
   <body>
     <a-scene>
@@ -44,12 +26,12 @@
       <!-- Link template we will build. -->
       <a-entity class="link"></a-entity>
 <!-- Portal from scene 1 to Scene 2 -->
-      <a-sphere position="2 1.5 -3" radius="0.5" src="#thumb2" portal="page: scenes/scene2.html" sound="on: click; src: #click-sound"
+      <a-sphere position="2 1.5 -3" radius="0.5" src="#thumb2" page-portal="page: scenes/scene2.html" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
 <!-- Portal to Scene 3 -->
-      <a-sphere position="-2 1.5 -3" radius="0.5" src="#thumb3" portal="page: scenes/scene3.html" sound="on: click; src: #click-sound"
+      <a-sphere position="-2 1.5 -3" radius="0.5" src="#thumb3" page-portal="page: scenes/scene3.html" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
