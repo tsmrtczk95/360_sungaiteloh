@@ -2,11 +2,12 @@ AFRAME.registerComponent('portal-label', {
   schema: {
     text: {default: ''},
     offset: {default: '0 1 0'},
-    width: {default: 1.5},       // width of textbox
-    height: {default: 0.4},      // height of textbox
+    width: {default: 1.5},    // width of textbox
+    height: {default: 0.4},    // height of textbox
     backgroundColor: {default: 'black'},
     backgroundOpacity: {default: 0.6},
-    textColor: {default: '#ffffff'}
+    textColor: {default: '#ffffff'},
+    textScale: {default: 1}    //textScale in index.html: 1-Normal, 2-Double Size 4-Very Large
   },
 
   init: function () {
@@ -31,7 +32,9 @@ AFRAME.registerComponent('portal-label', {
     label.setAttribute('align', 'center');
     label.setAttribute('color', data.textColor);
     label.setAttribute('side', 'double');
-    label.setAttribute('width', data.width * 1.2);  // auto-fit
+    // Added A-text scaling *important
+    label.setAttribute('scale', `${data.textScale} ${data.textScale} ${data.textScale}`);
+    label.setAttribute('width', data.width * 1.2 * data.textScale);  // auto-fit
     label.setAttribute('position', '0 0 0.01');     // slight forward
 
     wrapper.appendChild(bg);
