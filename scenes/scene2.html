@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mukah 360&deg; - Jerunei Sungai Teloh Walkway</title>
+    <meta name="description" content="360&deg; Image - A-Frame">
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="scripts/portal.js"/></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 
+    <script>
+      AFRAME.registerComponent('portal', {
+        schema: {
+          target: {type: 'string'}
+        },
+        init: function() {
+          this.el.addEventListener('click', () => {
+            let sky = document.querySelector('#image-360');
+            sky.setAttribute('src', this.data.target);
+            //click sound (optional)
+            let snd = document.querySelector('#click-sound');
+            snd.components.sound.playSound();
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+<!--AUDIO-->  
+        <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+<!--360 IMAGE & THUMBNAIL -->  
+        <img id="skyimg" src="assets/sgteloh2.jpeg">
+        <img id="thumb1" src="thumbnails/sgteloh1_thumb.jpeg">
+        <img id="thumb3" src="thumbnails/sgteloh3_thumb.jpeg">
+      </a-assets>
+<!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#skyimg"></a-sky>
+<!-- Portal return to Scene 1 -->
+      <a-sphere position="-2 1.5 -3" radius="0.5" src="#thumb1" portal="page: index.html" sound="on: click; src: #click-sound"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      </a-sphere>
+<!-- Portal go to Scene 3 -->
+      <a-sphere position="2 1.5 -3" radius="0.5" src="#thumb3" portal="page: scene3.html" sound="on: click; src: #click-sound"
+        animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
+        animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
+      </a-sphere>
+<!-- Camera + Cursor. -->
+      <a-camera wasd-controls-enabled="false" look-controls-enabled>
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
