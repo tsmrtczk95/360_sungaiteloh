@@ -10,23 +10,6 @@
     <script src="https://unpkg.com/aframe-layout-component@5.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-
-    <script>
-      AFRAME.registerComponent('portal', {
-        schema: {
-          target: {type: 'string'}
-        },
-        init: function() {
-          this.el.addEventListener('click', () => {
-            let sky = document.querySelector('#image-360');
-            sky.setAttribute('src', this.data.target);
-            //click sound (optional)
-            let snd = document.querySelector('#click-sound');
-            snd.components.sound.playSound();
-          });
-        }
-      });
-    </script>
   </head>
   <body>
     <a-scene>
