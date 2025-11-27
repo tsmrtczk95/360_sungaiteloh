@@ -1,8 +1,7 @@
 AFRAME.registerComponent('portal-label', {
   schema: {
     text: { type: 'string', default: 'Scene' },
-    size: { type: 'number', default: 0.4 },
-    yOffset: {type: 'number', default: 0.5} //set default height above portal to 0.5
+    size: { type: 'number', default: 0.4 }
   },
 
   init: function () {
@@ -13,9 +12,6 @@ AFRAME.registerComponent('portal-label', {
 
     // --- BILLBOARD BEHAVIOR ---
     wrapper.setAttribute('look-at', '[camera]');
-
-    // --- POSITION ABOVE SPHERE ---
-    wrapper.setAttribute('position', `0 ${this.data.yOffset} 0`);
 
     // --- BACKGROUND PANEL ---
     const bg = document.createElement('a-plane');
