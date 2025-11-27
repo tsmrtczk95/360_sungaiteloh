@@ -1,7 +1,8 @@
 AFRAME.registerComponent('portal-label', {
   schema: {
     text: { type: 'string', default: 'Scene' },
-    size: { type: 'number', default: 0.4 }
+    size: { type: 'number', default: 0.4 },
+    yOffset: {type: 'number', default: 0.5} //set default height above portal to 0.5
   },
 
   init: function () {
