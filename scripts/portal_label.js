@@ -8,7 +8,8 @@ AFRAME.registerComponent('portal-label', {
     const el = this.el;
 
     // Create wrapper entity
-    const wrapper = document.createElement('a-entity');
+    this.wrapper = document.createElement('a-entity');
+    //const wrapper = document.createElement('a-entity');
 
     // --- BILLBOARD BEHAVIOR ---
     // wrapper.setAttribute('look-at', '[camera]'); // FAILED
@@ -31,16 +32,16 @@ AFRAME.registerComponent('portal-label', {
     text.setAttribute('baseline', 'center');
     text.setAttribute('shader', 'msdf');           // sharper
     text.setAttribute('font', 'https://cdn.aframe.io/fonts/Roboto-msdf.json');
-
-    // Add text outline using drop-shadow filter
-    text.setAttribute('style', 'filter: drop-shadow(0px 0px 6px black);');
+    text.setAttribute('style', 'filter: drop-shadow(0px 0px 6px black);');  // Add text outline using drop-shadow filter
 
     wrapper.appendChild(bg);
     wrapper.appendChild(text);
     el.appendChild(wrapper);
-  }/*,
+  },
   tick: function () {
     // Always face user at fixed position (0, 1.6, 0)
-    this.wrapper.object3D.lookAt(new THREE.Vector3(0, 1.6, 0));
-  }*/
+    if (this.wrapper) {
+      this.wrapper.object3D.lookAt(new THREE.Vector3(0, 1.6, 0));
+    }
+  }
 });
