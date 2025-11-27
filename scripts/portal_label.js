@@ -8,8 +8,8 @@ AFRAME.registerComponent('portal-label', {
     const el = this.el;
 
     // Create wrapper entity
-    this.wrapper = document.createElement('a-entity');
-    //const wrapper = document.createElement('a-entity');
+    // this.wrapper = document.createElement('a-entity');
+    const wrapper = document.createElement('a-entity');
 
     // --- BILLBOARD BEHAVIOR ---
     // wrapper.setAttribute('look-at', '[camera]'); // FAILED
