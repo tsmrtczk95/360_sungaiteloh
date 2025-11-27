@@ -24,12 +24,12 @@
 <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#skyimg"></a-sky>
       <a-entity class="link"></a-entity>
-<!-- Portal return to Scene 1 -->
-      <a-sphere position="3 -0.75 -3" radius="0.5" src="#thumb1" page-portal="page: ../index.html" sound="on: click; src: #click-sound"
+<!-- Portal return to Scene 1 --> <!-- position="-2 1.5 -3" -->
+      <a-sphere position="4 1.5 1" radius="0.5" src="#thumb1" page-portal="page: ../index.html" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
-<!-- Portal go to Scene 3 -->
+<!-- Portal go to Scene 3 --> <!-- position="2 1.5 -3" -->
       <a-sphere position="0.5 1.5 -3" radius="0.5" src="#thumb3" page-portal="page: ../scenes/scene3.html" sound="on: click; src: #click-sound"
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
