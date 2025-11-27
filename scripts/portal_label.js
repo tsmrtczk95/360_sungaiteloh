@@ -38,9 +38,9 @@ AFRAME.registerComponent('portal-label', {
     wrapper.appendChild(bg);
     wrapper.appendChild(text);
     el.appendChild(wrapper);
-  },
+  }/*,
   tick: function () {
     // Always face user at fixed position (0, 1.6, 0)
     this.wrapper.object3D.lookAt(new THREE.Vector3(0, 1.6, 0));
-  }
+  }*/
 });
