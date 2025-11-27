@@ -13,6 +13,13 @@ AFRAME.registerComponent('portal-label', {
     // --- BILLBOARD BEHAVIOR ---
     wrapper.setAttribute('look-at', '[camera]');
 
+    // Apply offset ABOVE the sphere
+    wrapper.object3D.position.set(
+      this.data.offset.x, this.data.offset.y, this.data.offset.z);
+    // --- POSITION ABOVE SPHERE ---
+    /*wrapper.setAttribute('position',
+      `${this.data.offset.x} ${this.data.offset.y} ${this.data.offset.z}`); */
+    
     // --- BACKGROUND PANEL ---
     const bg = document.createElement('a-plane');
     bg.setAttribute('color', '#000');
