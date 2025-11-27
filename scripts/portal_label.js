@@ -14,6 +14,9 @@ AFRAME.registerComponent('portal-label', {
     // --- BILLBOARD BEHAVIOR ---
     wrapper.setAttribute('look-at', '[camera]');
 
+    // --- POSITION ABOVE SPHERE ---
+    wrapper.setAttribute('position', `0 ${this.data.yOffset} 0`);
+
     // --- BACKGROUND PANEL ---
     const bg = document.createElement('a-plane');
     bg.setAttribute('color', '#000');
