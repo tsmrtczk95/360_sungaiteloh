@@ -11,30 +11,31 @@
   </head>
   <body>
     <a-scene>
+<!-- STORE ASSETS HERE -->
       <a-assets>
-<!--AUDIO-->  
+<!-- AUDIO -->  
         <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-<!--360 IMAGE & THUMBNAIL -->  
+<!-- 360 IMAGE & THUMBNAIL -->  
         <img id="skyimg" src="../assets/sgteloh2.jpeg">
         <img id="thumb1" src="../thumbnails/sgteloh1_thumb.jpeg">
         <img id="thumb3" src="../thumbnails/sgteloh3_thumb.jpeg">
       </a-assets>
-<!-- 360-degree image. -->
+<!-- PAGE CURRENT 360-DEGREE IMAGE. -->
       <a-sky id="image-360" radius="10" src="#skyimg"></a-sky>
       <a-entity class="link"></a-entity>
-<!-- Portal return to Scene 1 --> <!-- position="-2 1.5 -3" -->
+<!-- PORTAL Return to Scene 1 -->
       <a-sphere position="4 1.5 1" radius="0.5" src="#thumb1" page-portal="page: ../index.html" sound="on: click; src: #click-sound"
         portal-glow="color: #00e5ff; intensity: 1.2" portal-label="text: Enterance; offset: 0 0.8 0; textScale: 1.5" 
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
-<!-- Portal go to Scene 3 --> <!-- position="2 1.5 -3" -->
+<!-- PORTAL Go to Scene 3 -->
       <a-sphere position="0.5 1.5 -3" radius="0.5" src="#thumb3" page-portal="page: ../scenes/scene3.html" sound="on: click; src: #click-sound"
         portal-glow="color: #00e5ff; intensity: 1.2" portal-label="text: Jerunei; offset: 0 0.8 0; textScale: 1.5" 
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
-<!-- Camera + Cursor. -->
+<!-- CAMERA + CURSOR. -->
       <a-camera wasd-controls-enabled="false" look-controls-enabled>
         <a-cursor></a-cursor>
       </a-camera>
