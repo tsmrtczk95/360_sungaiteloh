@@ -1,4 +1,3 @@
-<script>
 AFRAME.registerComponent('portal-glow', {
   schema: {
     color: {default: '#00e5ff'},
@@ -18,4 +17,3 @@ AFRAME.registerComponent('portal-glow', {
     this.el.setAttribute('material', 'emissiveIntensity', glow);
   }
 });
-</script>
