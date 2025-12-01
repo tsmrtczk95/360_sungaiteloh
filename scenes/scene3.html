@@ -33,7 +33,7 @@
 <!-- Contents -->
       <a-entity id="audA" sound="src: #audioA; autoplay: false; loop: false; volume: 1"></a-entity>
       <a-entity id="audB" sound="src: #audioB; autoplay: false; loop: false; volume: 1"></a-entity>
-      <a-entity position="-5 1 2">
+      <a-entity position="-5 1 1">
         <a-sphere radius="0.1" color="#ffaa00"
           portal-label="text: Metal Plaque; offset: 0 -0.2 0; textScale: 1.4"
           audio-toggle="target: #audA; mode: restart"
@@ -41,9 +41,9 @@
           animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
         </a-sphere>
       </a-entity>
-      <a-entity position="-5 8 -1.5">
+      <a-entity position="-5 8 -1">
         <a-sphere radius="0.1" color="#ffaa00"
-          portal-label="text: Carved Cavity; offset: 0 -0.2 0; textScale: 1.4"
+          portal-label="text: Carved Cavity; offset: 0 0.2 0; textScale: 1.4"
           audio-toggle="target: #audB; mode: restart"
           animation__hover="property: scale; startEvents: mouseenter; to: 1.5 1.5 1.5; dur: 400" 
           animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
