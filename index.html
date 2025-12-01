@@ -37,13 +37,14 @@
       <a-sound id="audA" src="#audioA" autoplay="true" loop="false" volume="1"></a-sound>
       <a-entity id="audA" sound="src: #audioA; autoplay: true; loop: false; volume: 1"></a-entity>
       <a-entity id="audB" sound="src: #audioB; autoplay: false; loop: false; volume: 1; positional: true"></a-entity>
-      <a-sphere position="-1 0.5 -3" radius="0.4" color="#ffaa00"
+      <a-entity position="0 0.7 -3" portal-label="text: Audio; textScale: 1.4"></a-entity>
+      <a-sphere position="-0.5 0.5 -3" radius="0.4" color="#ffaa00"
         portal-label="text: Welcome; offset: 0 -0.4 0; textScale: 1.4"
         audio-toggle="target: #audA; mode: restart"
         animation__hover="property: scale; startEvents: mouseenter; to: 0.8 0.8 0.8; dur: 400" 
         animation__leave="property: scale; startEvents: mouseleave; to: 0.5 0.5 0.5; dur: 200">
       </a-sphere>
-      <a-sphere position="1 0.5 -3" radius="0.4" color="#ffaa00"
+      <a-sphere position="0.5 0.5 -3" radius="0.3" color="#ffaa00"
         portal-label="text: Welcome 2; offset: 0 -0.4 0; textScale: 1.4"
         audio-toggle="target: #audA; mode: restart"
         animation__hover="property: scale; startEvents: mouseenter; to: 0.8 0.8 0.8; dur: 400" 
