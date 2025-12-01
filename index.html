@@ -8,6 +8,7 @@
     <script src="scripts/portal.js"></script>
     <script src="scripts/visual_effects.js"></script>
     <script src="scripts/portal_label.js"></script>
+    <script src="scripts/audio_toggle.js"></script>
   </head>
   <body>
     <a-scene>
@@ -18,6 +19,8 @@
         <img id="skyimg" src="assets/sgteloh1.jpeg">
         <img id="thumb2" src="thumbnails/sgteloh2_thumb.jpeg">
         <img id="thumb3" src="thumbnails/sgteloh3_thumb.jpeg">
+
+        <audio id="audioA" src="audio/welcome_tosapanpuloh.mp3"></audio>
       </a-assets>
 <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#skyimg"></a-sky>
@@ -29,6 +32,14 @@
         animation__hover="property: scale; startEvents: mouseenter; to: 1.2 1.2 1.2; dur: 200"
         animation__leave="property: scale; startEvents: mouseleave; to: 1 1 1; dur: 200">
       </a-sphere>
+      <!-- Contents -->
+      <a-entity id="audA" sound="src: #audioA; autoplay: true; loop: false; volume: 1; positional: true"></a-entity>
+      <a-sphere position="0 1 -2" radius="0.1" color="#ffaa00"
+        portal-label="text: Welcome; offset: 0 -0.4 0; textScale: 1"
+        audio-toggle="target: #audA; mode: restart"
+        animation__hover="property: scale; startEvents: mouseenter; to: 0.8 0.8 0.8; dur: 400" 
+        animation__leave="property: scale; startEvents: mouseleave; to: 0.3 0.3 0.3; dur: 200">
+      </a-sphere>      
 <!-- Camera + Cursor. -->
       <a-camera wasd-controls-enabled="false" cursor="rayOrigin: mouse">
         <a-cursor></a-cursor>
